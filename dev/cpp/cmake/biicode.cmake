@@ -341,7 +341,7 @@ macro(BII_DEFINE_TEST TEST_NAME)
     # Excluding from main building. They are only executed with "cmake --build . --target biitest"
     set_target_properties(${TEST_NAME} PROPERTIES EXCLUDE_FROM_ALL TRUE)
     # User could define his/her WORKING_DIRECTORY defining BII_TESTS_WORKING_DIR variable
-    add_test(NAME ${TEST_NAME} WORKING_DIRECTORY ${BII_TESTS_WORKING_DIR} COMMAND ${TEST_NAME})
+    add_test(NAME ${TEST_NAME} WORKING_DIRECTORY ${BII_TESTS_WORKING_DIR} COMMAND ${TEST_NAME}${CMAKE_EXECUTABLE_SUFFIX})
     # Add all the tests to main test target: biitest
     add_dependencies(biitest ${TEST_NAME})
     # Setting FAIL_REGULAR_EXPRESSION property to each test
